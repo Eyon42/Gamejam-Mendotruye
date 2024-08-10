@@ -5,4 +5,8 @@
 
 [node name="BuildingTile" instance=ExtResource("1_2fpp8")]
 script = ExtResource("1_1w58y")
+aumento = 50.0
+aumento_grande = 100.0
+resta = -50.0
+resta_grande = -100.0
 category = 0
