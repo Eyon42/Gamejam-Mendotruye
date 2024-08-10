@@ -27,6 +27,10 @@ func setup():
 func add_tile(tile: BuildingTile, used_tile: Tile,):
 	var pos = used_tile.position
 	print(pos)
+	
+	# Lo agrego a los edificios globales
+	Budget.array_edificios.append(tile)
+	
 	used_tile.queue_free()
 	tile.position = pos
 	tile.visible = true
@@ -75,6 +79,7 @@ func offTileHover():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	processMouse()
+	print(Budget.array_edificios)
 
 func processMouse():
 	var space_state = self.get_world_3d().direct_space_state
