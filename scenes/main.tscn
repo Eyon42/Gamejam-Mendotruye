@@ -1,22 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctauk7fq44u8s"]
+[gd_scene load_steps=8 format=3 uid="uid://ctauk7fq44u8s"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_r1h6h"]
-[ext_resource type="PackedScene" uid="uid://6c8uqmet47kw" path="res://scenes/empty_tile.tscn" id="2_a5vqj"]
-[ext_resource type="PackedScene" uid="uid://yg5woxm3honn" path="res://scenes/available_tile.tscn" id="3_cr58t"]
-[ext_resource type="PackedScene" uid="uid://d178gr21u7160" path="res://scenes/sample_tile.tscn" id="4_fg80r"]
+[ext_resource type="PackedScene" uid="uid://6vem4jbn7xr4" path="res://scenes/available_tile.tscn" id="2_qq3fk"]
+[ext_resource type="PackedScene" uid="uid://dtjg78uwf5qdt" path="res://scenes/tiles/sample_tile.tscn" id="4_fg80r"]
+[ext_resource type="PackedScene" uid="uid://gpqt1o0osrhs" path="res://scenes/tiles/industrial_sample.tscn" id="4_tbxl5"]
+[ext_resource type="PackedScene" uid="uid://d4hj63tm5clw3" path="res://scenes/tiles/comercial_sample.tscn" id="5_10kbp"]
+[ext_resource type="PackedScene" uid="uid://dj1tw2jybo48f" path="res://scenes/tiles/recreative_sample.tscn" id="6_p46cg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_khx1e"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_r1h6h")
-empty_tile = ExtResource("2_a5vqj")
-available_tile = ExtResource("3_cr58t")
-building_tiles = Array[PackedScene]([ExtResource("4_fg80r")])
+available_tile = ExtResource("2_qq3fk")
+building_tiles = Array[PackedScene]([ExtResource("4_fg80r"), ExtResource("4_tbxl5"), ExtResource("5_10kbp"), ExtResource("6_p46cg")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 10, 8)
-
-[node name="EmptyTile" parent="." instance=ExtResource("4_fg80r")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(130.502, 0, 0, 0, 1.00665, 0, 0, 0, 124.801, 0, 0, 0)

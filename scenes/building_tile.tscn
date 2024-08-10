@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdtd7a3yumtvr"]
+
+[ext_resource type="Script" path="res://scenes/building_tile.gd" id="1_1w58y"]
+[ext_resource type="PackedScene" uid="uid://yg5woxm3honn" path="res://scenes/tile.tscn" id="1_2fpp8"]
+
+[node name="BuildingTile" instance=ExtResource("1_2fpp8")]
+script = ExtResource("1_1w58y")
+category = 0

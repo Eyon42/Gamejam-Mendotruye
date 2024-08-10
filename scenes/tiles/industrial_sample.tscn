@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://gpqt1o0osrhs"]
+
+[ext_resource type="PackedScene" uid="uid://bdtd7a3yumtvr" path="res://scenes/building_tile.tscn" id="1_8tdwy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hhna5"]
+
+[node name="BuildingTile" instance=ExtResource("1_8tdwy")]
+category = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.308604, 0, 0, 0, 1, 0, 0.124452, 0)
+mesh = SubResource("BoxMesh_hhna5")
