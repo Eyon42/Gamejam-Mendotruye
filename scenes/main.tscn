@@ -14,8 +14,11 @@ script = ExtResource("1_r1h6h")
 available_tile = ExtResource("2_qq3fk")
 building_tiles = Array[PackedScene]([ExtResource("4_fg80r"), ExtResource("4_tbxl5"), ExtResource("5_10kbp"), ExtResource("6_p46cg")])
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 10, 8)
+[node name="12" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 12, 8)
+projection = 1
+size = 5.0
+near = 0.014
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(130.502, 0, 0, 0, 1.00665, 0, 0, 0, 124.801, 0, 0, 0)
@@ -23,3 +26,5 @@ mesh = SubResource("PlaneMesh_khx1e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.896866, 0.0399689, 0.440493, -0.386302, 0.555816, 0.736097, -0.215412, -0.830344, 0.513932, 5, 8, 3)
+
+[node name="BuildingTile" parent="." instance=ExtResource("5_10kbp")]

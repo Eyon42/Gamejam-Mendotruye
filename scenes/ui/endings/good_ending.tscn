@@ -1,0 +1,182 @@
+[gd_scene load_steps=19 format=3 uid="uid://du0vgak2gpos4"]
+
+[ext_resource type="Script" path="res://game_components/scenes/endings/good_ending.gd" id="1_bxt2y"]
+[ext_resource type="Texture2D" uid="uid://c3fmldv30cgpe" path="res://assets/goodEnding.png" id="2_1r5a1"]
+[ext_resource type="AudioStream" uid="uid://xp2ssk11qwse" path="res://assets/goodEnding.mp3" id="3_nuvec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60y0y"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 16, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6083b"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 208, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i386r"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 400, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28u3v"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 592, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_necyx"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 784, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tie33"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 976, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rat3f"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 1168, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjnbd"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 1360, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqcrb"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 1552, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cq76"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 1744, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kdfn"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 1936, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4b4d"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 2128, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s538m"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 2320, 320, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecw6w"]
+atlas = ExtResource("2_1r5a1")
+region = Rect2(16, 2512, 320, 176)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdffg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60y0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6083b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i386r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28u3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_necyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tie33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rat3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjnbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqcrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cq76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kdfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4b4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s538m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecw6w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GoodEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bxt2y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(577, 323.625)
+scale = Vector2(3.68608, 3.68608)
+sprite_frames = SubResource("SpriteFrames_qdffg")
+frame_progress = 0.380361
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.5
+offset_right = 100.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Salir"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.5
+offset_top = -271.0
+offset_right = 389.5
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.258824)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -54.0
+offset_right = 366.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "¡Felicitaciones!
+Has trabajado en equipo y sobrevivido la noche"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nuvec")
+autoplay = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

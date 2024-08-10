@@ -5,6 +5,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_6rkgb"]
 
 [node name="AvailableTile" instance=ExtResource("1_e85ep")]
+collision_layer = 8
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.309289, 0, 0, 0, 0.309289, 0, 0, 0, 0.309289, 0, 0, 0)
