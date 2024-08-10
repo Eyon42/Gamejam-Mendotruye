@@ -22,7 +22,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(name, " money_gain:", money_gain)
+	pass
 
 #Calcula plata gana segun con respecto a sus vecinos
 func _calculate_money_gain(categoria_vecina: Category):
