@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdtd7a3yumtvr"]
+[gd_scene load_steps=4 format=3 uid="uid://bdtd7a3yumtvr"]
 
 [ext_resource type="Script" path="res://scenes/building_tile.gd" id="1_1w58y"]
 [ext_resource type="PackedScene" uid="uid://yg5woxm3honn" path="res://scenes/tile.tscn" id="1_2fpp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oyw5j"]
+size = Vector3(0.397949, 0.767944, 0.44342)
 
 [node name="BuildingTile" instance=ExtResource("1_2fpp8")]
 script = ExtResource("1_1w58y")
@@ -10,3 +13,32 @@ aumento_grande = 100.0
 resta = -50.0
 resta_grande = -100.0
 category = 0
+
+[node name="ColisionVecino" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino" index="0"]
+shape = SubResource("BoxShape3D_oyw5j")
+
+[node name="ColisionVecino2" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino2" index="0"]
+shape = SubResource("BoxShape3D_oyw5j")
+
+[node name="ColisionVecino3" type="Area3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino3" index="0"]
+shape = SubResource("BoxShape3D_oyw5j")
+
+[node name="ColisionVecino4" type="Area3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino4" index="0"]
+shape = SubResource("BoxShape3D_oyw5j")
+
+[connection signal="area_entered" from="ColisionVecino" to="." method="_on_colision_vecino_area_entered"]
+[connection signal="area_entered" from="ColisionVecino2" to="." method="_on_colision_vecino_2_area_entered"]
+[connection signal="area_entered" from="ColisionVecino3" to="." method="_on_colision_vecino_3_area_entered"]
+[connection signal="area_entered" from="ColisionVecino4" to="." method="_on_colision_vecino_4_area_entered"]

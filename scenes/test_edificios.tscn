@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://djigk7g0jmwnd"]
+
+[ext_resource type="PackedScene" uid="uid://d4hj63tm5clw3" path="res://scenes/tiles/comercial_sample.tscn" id="1_ifke3"]
+[ext_resource type="PackedScene" uid="uid://gpqt1o0osrhs" path="res://scenes/tiles/industrial_sample.tscn" id="2_7473d"]
+[ext_resource type="PackedScene" uid="uid://dj1tw2jybo48f" path="res://scenes/tiles/recreative_sample.tscn" id="3_3g6su"]
+
+[node name="TestEdificios" type="Node3D"]
+
+[node name="Comercial" parent="." instance=ExtResource("1_ifke3")]
+
+[node name="Industrial" parent="." instance=ExtResource("2_7473d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Industrial2" parent="." instance=ExtResource("2_7473d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Recreativo" parent="." instance=ExtResource("3_3g6su")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Recreativo2" parent="." instance=ExtResource("3_3g6su")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.955242, 0.295825, 0, -0.295825, 0.955242, 0, 1.17206, 2.10232)

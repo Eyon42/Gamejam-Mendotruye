@@ -20,10 +20,10 @@ func _ready():
 	pass
 	 # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	print(name, " money_gain:", money_gain)
+
 #Calcula plata gana segun con respecto a sus vecinos
 func _calculate_money_gain(categoria_vecina: Category):
 	var money_changed 
@@ -62,7 +62,37 @@ func _calculate_money_gain(categoria_vecina: Category):
 	return money_changed
 
 func calcular_total_vecinos():
-	var suma
-	for vecino in vecinos:
-		suma =+ _calculate_money_gain(vecino)
+	var suma = 0
+	for vecino : BuildingTile in vecinos:
+		suma += _calculate_money_gain(vecino.category)
+	
 	money_gain = suma
+
+
+func _on_colision_vecino_4_area_entered(area : BuildingTile):
+	if area == null:
+		return
+	
+	vecinos.append(area)
+	calcular_total_vecinos()
+
+func _on_colision_vecino_3_area_entered(area : BuildingTile):
+	if area == null:
+		return
+	
+	vecinos.append(area)
+	calcular_total_vecinos()
+
+func _on_colision_vecino_2_area_entered(area : BuildingTile):
+	if area == null:
+		return
+	
+	vecinos.append(area)
+	calcular_total_vecinos()
+
+func _on_colision_vecino_area_entered(area : BuildingTile):
+	if area == null:
+		return
+	
+	vecinos.append(area)
+	calcular_total_vecinos()
