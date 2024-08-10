@@ -33,14 +33,20 @@ func add_tile(tile: BuildingTile, used_tile: Tile,):
 	# Build available tiles
 	# TODO: Check available
 	# top
-	add_available_tile(Vector3(pos.x,pos.y,pos.z +1))
+	if (tile.available["top"]):
+		add_available_tile(Vector3(pos.x,pos.y,pos.z +1))
 	# bottom
-	add_available_tile(Vector3(pos.x,pos.y,pos.z -1))
+	if (tile.available["down"]):
+		add_available_tile(Vector3(pos.x,pos.y,pos.z -1))
+		pass
 	# left
-	add_available_tile(Vector3(pos.x-1,pos.y,pos.z))
+	if (tile.available["left"]):
+		add_available_tile(Vector3(pos.x-1,pos.y,pos.z))
+		pass
 	# right
-	add_available_tile(Vector3(pos.x+1,pos.y,pos.z))
-	pass
+	if (tile.available["right"]):
+		add_available_tile(Vector3(pos.x+1,pos.y,pos.z))
+		pass
 
 func add_available_tile(pos):
 	print(pos)
