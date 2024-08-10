@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctauk7fq44u8s"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_r1h6h"]
+[ext_resource type="PackedScene" uid="uid://6c8uqmet47kw" path="res://scenes/empty_tile.tscn" id="2_a5vqj"]
+[ext_resource type="PackedScene" uid="uid://yg5woxm3honn" path="res://scenes/available_tile.tscn" id="3_cr58t"]
+[ext_resource type="PackedScene" uid="uid://d178gr21u7160" path="res://scenes/sample_tile.tscn" id="4_fg80r"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_khx1e"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_r1h6h")
+empty_tile = ExtResource("2_a5vqj")
+available_tile = ExtResource("3_cr58t")
+building_tiles = Array[PackedScene]([ExtResource("4_fg80r")])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 10, 8)
+
+[node name="EmptyTile" parent="." instance=ExtResource("4_fg80r")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(130.502, 0, 0, 0, 1.00665, 0, 0, 0, 124.801, 0, 0, 0)
+mesh = SubResource("PlaneMesh_khx1e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.896866, 0.0399689, 0.440493, -0.386302, 0.555816, 0.736097, -0.215412, -0.830344, 0.513932, 5, 8, 3)
