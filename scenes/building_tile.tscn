@@ -19,24 +19,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
+disabled = true
 
 [node name="ColisionVecino2" type="Area3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino2" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
+disabled = true
 
 [node name="ColisionVecino3" type="Area3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino3" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
+disabled = true
 
 [node name="ColisionVecino4" type="Area3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino4" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
+disabled = true
 
 [connection signal="area_entered" from="ColisionVecino" to="." method="_on_colision_vecino_area_entered"]
 [connection signal="area_entered" from="ColisionVecino2" to="." method="_on_colision_vecino_2_area_entered"]
