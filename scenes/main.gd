@@ -58,6 +58,8 @@ func add_tile(tile: BuildingTile, used_tile: Tile):
 	
 	# Lo agrego a los edificios globales
 	Budget.array_edificios.append(tile)
+	tile.building_placed = true
+	tile.enable_lateral_collisions()
 	
 	used_tile.queue_free()
 	tile.position = pos
