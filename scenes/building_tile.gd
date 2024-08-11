@@ -64,6 +64,7 @@ func _calculate_money_gain(categoria_vecina: Category):
 func calcular_total_vecinos():
 	var suma = 0
 	for vecino : BuildingTile in vecinos:
+		#print(vecino)
 		suma += _calculate_money_gain(vecino.category)
 	
 	money_gain = suma

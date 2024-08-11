@@ -26,6 +26,10 @@ func setup():
 
 func add_tile(tile: BuildingTile, used_tile: Tile):
 	var pos = used_tile.position
+	
+	# Lo agrego a los edificios globales
+	Budget.array_edificios.append(tile)
+	
 	used_tile.queue_free()
 	tile.position = pos
 	tile.visible = true
@@ -60,7 +64,6 @@ func onTileHover(tile: Tile):
 	_current_tile.position = tile.position
 	_selected_tile = tile
 	_selected_tile.visible = false
-
 	
 	
 func offTileHover():
