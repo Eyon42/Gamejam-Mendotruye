@@ -77,26 +77,26 @@ func enable_lateral_collisions():
 	colision_vecino3.disabled = false
 	colision_vecino4.disabled = false
 
-func _on_colision_vecino_4_area_entered(area : BuildingTile):
-	if area == null or not building_placed or not area.building_placed:
+func _on_colision_vecino_4_area_entered(area):
+	if not (area is BuildingTile) or not building_placed or not area.building_placed:
 		return
 	vecinos.append(area)
 	calcular_total_vecinos()
 
-func _on_colision_vecino_3_area_entered(area : BuildingTile):
-	if area == null or not building_placed or not area.building_placed:
+func _on_colision_vecino_3_area_entered(area):
+	if not (area is BuildingTile) or not building_placed or not area.building_placed:
 		return
 	vecinos.append(area)
 	calcular_total_vecinos()
 
-func _on_colision_vecino_2_area_entered(area : BuildingTile):
-	if area == null or not building_placed or not area.building_placed:
+func _on_colision_vecino_2_area_entered(area):
+	if not (area is BuildingTile) or not building_placed or not area.building_placed:
 		return
 	vecinos.append(area)
 	calcular_total_vecinos()
 
-func _on_colision_vecino_area_entered(area : BuildingTile):
-	if area == null or not building_placed or not area.building_placed:
+func _on_colision_vecino_area_entered(area):
+	if not (area is BuildingTile) or not building_placed or not area.building_placed:
 		return
 	vecinos.append(area)
 	calcular_total_vecinos()
