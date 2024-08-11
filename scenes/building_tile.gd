@@ -69,18 +69,15 @@ func calcular_total_vecinos():
 	
 	money_gain = suma
 
-
 func _on_colision_vecino_4_area_entered(area : BuildingTile):
 	if area == null:
 		return
-	
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_3_area_entered(area : BuildingTile):
 	if area == null:
 		return
-	
 	vecinos.append(area)
 	calcular_total_vecinos()
 
@@ -94,6 +91,6 @@ func _on_colision_vecino_2_area_entered(area : BuildingTile):
 func _on_colision_vecino_area_entered(area : BuildingTile):
 	if area == null:
 		return
-	
+
 	vecinos.append(area)
 	calcular_total_vecinos()

@@ -23,12 +23,14 @@ near = 0.014
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(130.502, 0, 0, 0, 1.00665, 0, 0, 0, 124.801, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_khx1e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.896866, 0.0399689, 0.440493, -0.386302, 0.555816, 0.736097, -0.215412, -0.830344, 0.513932, 5, 8, 3)
 
 [node name="BuildingTile" parent="." instance=ExtResource("5_10kbp")]
+
 
 [node name="MoneyLabel" type="Label" parent="."]
 anchors_preset = 5
@@ -40,3 +42,5 @@ offset_bottom = 23.0
 grow_horizontal = 2
 text = "Money: "
 script = ExtResource("7_htfvu")
+
+[editable path="BuildingTile"]

@@ -9,3 +9,8 @@
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.512778, 0, 0, 0, 1, 0, 0, 0, 0.276135, 2.08165e-12, 0.5, 2.08165e-12)
 mesh = SubResource("BoxMesh_bxyer")
+
+[connection signal="area_exited" from="ColisionVecino" to="." method="_on_colision_vecino_area_exited"]
+[connection signal="area_exited" from="ColisionVecino2" to="." method="_on_colision_vecino_2_area_exited"]
+[connection signal="area_exited" from="ColisionVecino3" to="." method="_on_colision_vecino_3_area_exited"]
+[connection signal="area_exited" from="ColisionVecino4" to="." method="_on_colision_vecino_4_area_exited"]

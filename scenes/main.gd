@@ -9,7 +9,7 @@ var RAYCAST_LENGTH:float = 100
 var tiles = Array()
 var _current_tile: BuildingTile
 var _selected_tile: Tile
-
+var occupied_places = {100:true}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,9 +24,8 @@ func setup():
 	add_tile(tile,zero_tile)
 	start_drop()
 
-func add_tile(tile: BuildingTile, used_tile: Tile,):
+func add_tile(tile: BuildingTile, used_tile: Tile):
 	var pos = used_tile.position
-	#print(pos)
 	
 	# Lo agrego a los edificios globales
 	Budget.array_edificios.append(tile)
@@ -35,7 +34,6 @@ func add_tile(tile: BuildingTile, used_tile: Tile,):
 	tile.position = pos
 	tile.visible = true
 	# Build available tiles
-	# TODO: Check available
 	# top
 	add_available_tile(Vector3(pos.x,pos.y,pos.z +1))
 	# bottom
@@ -44,17 +42,17 @@ func add_tile(tile: BuildingTile, used_tile: Tile,):
 	add_available_tile(Vector3(pos.x-1,pos.y,pos.z))
 	# right
 	add_available_tile(Vector3(pos.x+1,pos.y,pos.z))
-	pass
 
 func add_available_tile(pos):
-	#print(pos)
-	if (abs(pos.x) >2 or abs(pos.z) > 2):
-		return null
-	var a_tile:Node3D = available_tile.instantiate()
-	a_tile.position = pos
-	self.add_child(a_tile)
-	#print("Available added")
-	return a_tile
+	var key = pos.x + pos.z*100
+	if (!occupied_places.has(key)):
+		if (abs(pos.x) >2 or abs(pos.z) > 2):
+			return null
+		var a_tile:Node3D = available_tile.instantiate()
+		a_tile.position = pos
+		self.add_child(a_tile)
+		occupied_places[key] = true
+		return a_tile
 
 func start_drop():
 	_current_tile = building_tiles.pick_random().instantiate()
@@ -66,14 +64,12 @@ func onTileHover(tile: Tile):
 	_current_tile.position = tile.position
 	_selected_tile = tile
 	_selected_tile.visible = false
-	#print("show selected")
 	
 	
 func offTileHover():
 	if (_selected_tile != null):
 		_current_tile.visible = false
 		_selected_tile.visible = true
-		#print("show selected")
 		_selected_tile = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
