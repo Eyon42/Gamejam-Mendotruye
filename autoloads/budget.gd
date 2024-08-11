@@ -20,6 +20,7 @@ func recolectar_money():
 	var suma := 0.0
 	#TODO: esto como que a veces no suma bien no se porque xd
 	for edificio : BuildingTile in array_edificios:
+		print("Recolecté: ", edificio.money_gain, "$ de ", edificio.name)
 		suma += edificio.money_gain
 	current_rate = suma
 	return suma

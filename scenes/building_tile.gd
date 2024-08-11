@@ -1,6 +1,8 @@
 class_name BuildingTile
 extends Tile
 
+@onready var collision_shape_3d = $CollisionShape3D
+
 @onready var colision_vecino1 = $ColisionVecino/CollisionShape3D
 @onready var colision_vecino2 = $ColisionVecino2/CollisionShape3D
 @onready var colision_vecino3 = $ColisionVecino3/CollisionShape3D
@@ -81,6 +83,8 @@ func calcular_total_vecinos():
 	money_gain = suma
 
 func enable_lateral_collisions():
+	# Turns on all collisions, usually happens when placed
+	collision_shape_3d.disabled = false
 	colision_vecino1.disabled = false
 	colision_vecino2.disabled = false
 	colision_vecino3.disabled = false

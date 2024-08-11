@@ -56,6 +56,9 @@ mesh = SubResource("BoxMesh_qsl2h")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_pk7u5")
 
+[node name="CollisionShape3D" parent="." index="2"]
+disabled = true
+
 [node name="ColisionVecino" type="Area3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 
