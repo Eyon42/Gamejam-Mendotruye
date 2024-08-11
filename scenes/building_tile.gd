@@ -1,6 +1,12 @@
 class_name BuildingTile
 extends Tile
 
+@onready var colision_vecino1 = $ColisionVecino/CollisionShape3D
+@onready var colision_vecino2 = $ColisionVecino2/CollisionShape3D
+@onready var colision_vecino3 = $ColisionVecino3/CollisionShape3D
+@onready var colision_vecino4 = $ColisionVecino4/CollisionShape3D
+
+
 enum Category {
 	RESIDENCIAL,
 	RECREATIVO,
@@ -15,6 +21,9 @@ enum Category {
 @export var category: Category
 
 var vecinos : Array
+
+var building_placed := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -33,7 +42,7 @@ func _calculate_money_gain(categoria_vecina: Category):
 		if categoria_vecina == Category.INDUSTRIAL:
 			money_changed = resta_grande
 		if categoria_vecina == Category.COMERCIAL:
-			money_changed = aumento	
+			money_changed = aumento
 	
 	if category == Category.INDUSTRIAL:
 		if categoria_vecina == Category.RECREATIVO:
@@ -69,28 +78,32 @@ func calcular_total_vecinos():
 	
 	money_gain = suma
 
+func enable_lateral_collisions():
+	colision_vecino1.disabled = false
+	colision_vecino2.disabled = false
+	colision_vecino3.disabled = false
+	colision_vecino4.disabled = false
+
 func _on_colision_vecino_4_area_entered(area : BuildingTile):
-	if area == null:
+	if area == null or not building_placed or not area.building_placed:
 		return
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_3_area_entered(area : BuildingTile):
-	if area == null:
+	if area == null or not building_placed or not area.building_placed:
 		return
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_2_area_entered(area : BuildingTile):
-	if area == null:
+	if area == null or not building_placed or not area.building_placed:
 		return
-	
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_area_entered(area : BuildingTile):
-	if area == null:
+	if area == null or not building_placed or not area.building_placed:
 		return
-
 	vecinos.append(area)
 	calcular_total_vecinos()

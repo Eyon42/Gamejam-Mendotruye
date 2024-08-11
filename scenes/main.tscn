@@ -31,6 +31,17 @@ transform = Transform3D(0.896866, 0.0399689, 0.440493, -0.386302, 0.555816, 0.73
 
 [node name="BuildingTile" parent="." instance=ExtResource("5_10kbp")]
 
+[node name="CollisionShape3D" parent="BuildingTile/ColisionVecino" index="0"]
+disabled = false
+
+[node name="CollisionShape3D" parent="BuildingTile/ColisionVecino2" index="0"]
+disabled = false
+
+[node name="CollisionShape3D" parent="BuildingTile/ColisionVecino3" index="0"]
+disabled = false
+
+[node name="CollisionShape3D" parent="BuildingTile/ColisionVecino4" index="0"]
+disabled = false
 
 [node name="MoneyLabel" type="Label" parent="."]
 anchors_preset = 5
