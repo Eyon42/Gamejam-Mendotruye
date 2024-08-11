@@ -21,6 +21,9 @@ var place_cooldown = false
 var bad_end = false
 var good_end = false
 
+var good_scene = preload("res://scenes/ui/endings/good_ending.tscn")
+var bad_scene = preload("res://scenes/ui/endings/bad_ending.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_cam = get_viewport().get_camera_3d()
@@ -29,6 +32,7 @@ func _ready():
 	setup()
 	var music_player = get_node("MusicPlayer")
 	music_player.set_volume_db(-20.0)
+	Game.running = true
 	pass # Replace with function body.
 
 func setup():
@@ -120,16 +124,20 @@ func offTileHover():
 func _process(delta):
 	if init:
 		if good_end:
-			var scene = load("res://scenes/ui/endings/good_ending.tscn").instantiate()
+			self.queue_free()
+			var scene = good_scene.instantiate()
 			get_tree().root.add_child(scene)
 			remove_child(sfx_player)
 			remove_child(get_node("MusicPlayer"))
+			Game.running = false
 			self.queue_free()
 		if bad_end:
-			var scene = load("res://scenes/ui/endings/bad_ending.tscn").instantiate()
+			self.queue_free()
+			var scene = bad_scene.instantiate()
 			get_tree().root.add_child(scene)
 			remove_child(sfx_player)
 			remove_child(get_node("MusicPlayer"))
+			Game.running = false
 			self.queue_free()
 		processMouse()
 	

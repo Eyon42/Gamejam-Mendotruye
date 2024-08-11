@@ -15,7 +15,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	money += recolectar_money() - (Game.speed_penalty / 5)**1.25 - Game.placed_tiles
+	if Game.running:
+		money += recolectar_money() - (Game.speed_penalty / 5)**1.25 - Game.placed_tiles
+	else:
+		array_edificios = Array()
+		Game.placed_tiles = 0
+		Game.speed_penalty = 0
+		money = 10000
 
 func recolectar_money():
 	var suma := 0.0
