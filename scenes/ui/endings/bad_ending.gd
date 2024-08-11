@@ -4,7 +4,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioStreamPlayer.play()
-	$AnimatedSprite2D.play("default")
 	pass # Replace with function body.
 
 
@@ -14,10 +13,9 @@ func _process(delta):
 
 
 func _on_button_button_down():
-	GameManager.newGame.rpc()
-	deleteSelf.rpc()
-
-@rpc("any_peer", "call_local")	
-func deleteSelf():
 	self.queue_free()
-	
+	var scene = load("res://scenes/main.tscn").instantiate()
+	get_tree().root.add_child(scene)
+	var audio_node = get_node("AudioStreamPlayer")
+	remove_child(audio_node)
+	self.queue_free()

@@ -2,10 +2,11 @@ extends Node
 
 @onready var timer = $Timer
 
-var money : float = 0
+var money : float = 10000
 
 var array_edificios : Array
 var current_rate = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	money += recolectar_money() - (Game.speed_penalty / 5)**1.25 - Game.placed_tiles
 
 func recolectar_money():
 	var suma := 0.0
@@ -23,6 +24,4 @@ func recolectar_money():
 		suma += edificio.money_gain
 	current_rate = suma
 	return suma
-
-func _on_timer_timeout():
-	money += recolectar_money()
+	

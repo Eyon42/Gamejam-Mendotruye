@@ -69,7 +69,7 @@ func calcular_total_vecinos():
 		#print(vecino)
 		suma += _calculate_money_gain(vecino.category)
 	
-	money_gain = suma
+	money_gain = suma / 60.0
 
 func enable_lateral_collisions():
 	colision_vecino1.disabled = false

@@ -18,6 +18,8 @@ var plop_sound = preload("res://assets/sound/drop.wav")
 var game_music = preload("res://assets/sound/Maingame.wav")
 var timer: Timer
 var place_cooldown = false
+var bad_end = false
+var good_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +64,9 @@ func add_tile(tile: BuildingTile, used_tile: Tile):
 	play_plop_sound()
 	var pos = used_tile.position
 	Game.placed_tiles += 1
+	Game.speed_penalty = 0
+	if (Game.placed_tiles == Game.total_spaces):
+		good_end = true
 	# print(str(placed_tiles) + "/" + str(total_spaces))
 	
 	# Lo agrego a los edificios globales
@@ -114,7 +119,23 @@ func offTileHover():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if init:
+		if good_end:
+			var scene = load("res://scenes/ui/endings/good_ending.tscn").instantiate()
+			get_tree().root.add_child(scene)
+			remove_child(sfx_player)
+			remove_child(get_node("MusicPlayer"))
+			self.queue_free()
+		if bad_end:
+			var scene = load("res://scenes/ui/endings/bad_ending.tscn").instantiate()
+			get_tree().root.add_child(scene)
+			remove_child(sfx_player)
+			remove_child(get_node("MusicPlayer"))
+			self.queue_free()
 		processMouse()
+	
+	if (Budget.money < 0):
+		bad_end = true
+	Game.speed_penalty += 0.5 + Game.speed_penalty / 100
 
 func processMouse():
 	var space_state = self.get_world_3d().direct_space_state
