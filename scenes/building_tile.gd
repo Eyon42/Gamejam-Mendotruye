@@ -87,27 +87,23 @@ func enable_lateral_collisions():
 func _on_colision_vecino_4_area_entered(area : BuildingTile):
 	if area == null or not building_placed or not area.building_placed:
 		return
-	print("sumado vecino xd")
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_3_area_entered(area : BuildingTile):
 	if area == null or not building_placed or not area.building_placed:
 		return
-	print("sumado vecino xd")
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_2_area_entered(area : BuildingTile):
 	if area == null or not building_placed or not area.building_placed:
 		return
-	print("sumado vecino xd")
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_area_entered(area : BuildingTile):
 	if area == null or not building_placed or not area.building_placed:
 		return
-	print("sumado vecino xd")
 	vecinos.append(area)
 	calcular_total_vecinos()
