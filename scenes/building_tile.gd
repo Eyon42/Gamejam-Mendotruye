@@ -14,13 +14,6 @@ enum Category {
 
 @export var category: Category
 
-var available = {
-	"top": true,
-	"down": true,
-	"left": true,
-	"right": true,
-}
-
 var vecinos : Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,18 +68,15 @@ func calcular_total_vecinos():
 	
 	money_gain = suma
 
-
 func _on_colision_vecino_4_area_entered(area : BuildingTile):
 	if area == null:
 		return
-	available["down"] = false
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_3_area_entered(area : BuildingTile):
 	if area == null:
 		return
-	available["top"] = false
 	vecinos.append(area)
 	calcular_total_vecinos()
 
@@ -94,14 +84,12 @@ func _on_colision_vecino_2_area_entered(area : BuildingTile):
 	if area == null:
 		return
 	
-	available["left"] = false
 	vecinos.append(area)
 	calcular_total_vecinos()
 
 func _on_colision_vecino_area_entered(area : BuildingTile):
 	if area == null:
 		return
-	
-	available["right"] = false
+
 	vecinos.append(area)
 	calcular_total_vecinos()
