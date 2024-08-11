@@ -5,6 +5,7 @@ extends Node
 var money : float = 0
 
 var array_edificios : Array
+var current_rate = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,7 @@ func recolectar_money():
 		#print(edificio.name, ": ", edificio.money_gain)
 		suma += edificio.money_gain
 	#print("")
+	current_rate = suma
 	return suma
 
 func _on_timer_timeout():

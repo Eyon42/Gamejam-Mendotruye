@@ -1,3 +1,4 @@
+class_name MainGameLoop
 extends Node3D
 
 
@@ -10,6 +11,7 @@ var tiles = Array()
 var _current_tile: BuildingTile
 var _selected_tile: Tile
 var occupied_places = {100:true}
+var init = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,12 +22,16 @@ func _ready():
 func setup():
 	var tile:BuildingTile = building_tiles.pick_random().instantiate()
 	self.add_child(tile)
-	var zero_tile:Tile = building_tiles.pick_random().instantiate()
+	var zero_tile:Tile = available_tile.instantiate()
 	add_tile(tile,zero_tile)
 	start_drop()
+	init = true
 
 func add_tile(tile: BuildingTile, used_tile: Tile):
+	print("Tile added")
 	var pos = used_tile.position
+	Game.placed_tiles += 1
+	# print(str(placed_tiles) + "/" + str(total_spaces))
 	
 	# Lo agrego a los edificios globales
 	Budget.array_edificios.append(tile)
@@ -46,7 +52,7 @@ func add_tile(tile: BuildingTile, used_tile: Tile):
 func add_available_tile(pos):
 	var key = pos.x + pos.z*100
 	if (!occupied_places.has(key)):
-		if (abs(pos.x) >2 or abs(pos.z) > 2):
+		if (abs(pos.x) > Game.grid_radius or abs(pos.z) > Game.grid_radius):
 			return null
 		var a_tile:Node3D = available_tile.instantiate()
 		a_tile.position = pos
@@ -58,6 +64,7 @@ func start_drop():
 	_current_tile = building_tiles.pick_random().instantiate()
 	_current_tile.visible = false
 	self.add_child(_current_tile)
+	Game.current_building = _current_tile
 
 func onTileHover(tile: Tile):
 	_current_tile.visible = true
@@ -74,7 +81,8 @@ func offTileHover():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	processMouse()
+	if init:
+		processMouse()
 
 func processMouse():
 	var space_state = self.get_world_3d().direct_space_state

@@ -1,16 +1,11 @@
-extends Node
+extends Label
 
-var grid_radius = 2
-var total_spaces = (grid_radius * 2 + 1)**2
-var placed_tiles = 0
-var current_building: BuildingTile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Hello World")
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	text = str(Game.placed_tiles) + "/" + str(Game.total_spaces)
