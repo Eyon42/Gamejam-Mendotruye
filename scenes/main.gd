@@ -26,7 +26,7 @@ func setup():
 
 func add_tile(tile: BuildingTile, used_tile: Tile,):
 	var pos = used_tile.position
-	print(pos)
+	#print(pos)
 	
 	# Lo agrego a los edificios globales
 	Budget.array_edificios.append(tile)
@@ -47,13 +47,13 @@ func add_tile(tile: BuildingTile, used_tile: Tile,):
 	pass
 
 func add_available_tile(pos):
-	print(pos)
+	#print(pos)
 	if (abs(pos.x) >2 or abs(pos.z) > 2):
 		return null
 	var a_tile:Node3D = available_tile.instantiate()
 	a_tile.position = pos
 	self.add_child(a_tile)
-	print("Available added")
+	#print("Available added")
 	return a_tile
 
 func start_drop():
@@ -66,20 +66,19 @@ func onTileHover(tile: Tile):
 	_current_tile.position = tile.position
 	_selected_tile = tile
 	_selected_tile.visible = false
-	print("show selected")
+	#print("show selected")
 	
 	
 func offTileHover():
 	if (_selected_tile != null):
 		_current_tile.visible = false
 		_selected_tile.visible = true
-		print("show selected")
+		#print("show selected")
 		_selected_tile = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	processMouse()
-	print(Budget.array_edificios)
 
 func processMouse():
 	var space_state = self.get_world_3d().direct_space_state

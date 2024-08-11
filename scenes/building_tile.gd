@@ -26,7 +26,7 @@ func _process(delta):
 
 #Calcula plata gana segun con respecto a sus vecinos
 func _calculate_money_gain(categoria_vecina: Category):
-	var money_changed 
+	var money_changed = 0
 	if category == Category.RESIDENCIAL:
 		if categoria_vecina == Category.RECREATIVO:
 			money_changed = aumento_grande
@@ -64,7 +64,7 @@ func _calculate_money_gain(categoria_vecina: Category):
 func calcular_total_vecinos():
 	var suma = 0
 	for vecino : BuildingTile in vecinos:
-		print(vecino)
+		#print(vecino)
 		suma += _calculate_money_gain(vecino.category)
 	
 	money_gain = suma

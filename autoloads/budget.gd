@@ -16,7 +16,13 @@ func _process(delta):
 	pass
 
 func recolectar_money():
-	pass
+	var suma := 0.0
+	print("Recolectamos money:")
+	for edificio : BuildingTile in array_edificios:
+		print(edificio.name, ": ", edificio.money_gain)
+		suma += edificio.money_gain
+	print("")
+	return suma
 
 func _on_timer_timeout():
-	pass # Replace with function body.
+	money += recolectar_money()
