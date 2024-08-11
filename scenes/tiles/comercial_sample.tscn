@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4hj63tm5clw3"]
+[gd_scene load_steps=4 format=3 uid="uid://d4hj63tm5clw3"]
 
 [ext_resource type="PackedScene" uid="uid://bdtd7a3yumtvr" path="res://scenes/building_tile.tscn" id="1_bwas3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb2nu"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yy8oa"]
 
@@ -9,4 +11,10 @@ category = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(0.619746, 0, 0, 0, 1, 0, 0, 0, 0.508457, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_yb2nu")
+gi_mode = 2
 mesh = SubResource("CylinderMesh_yy8oa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125541, -0.00804341)
+light_color = Color(0.0228593, 0, 0.657314, 1)

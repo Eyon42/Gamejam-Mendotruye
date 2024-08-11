@@ -21,11 +21,7 @@ func recolectar_money():
 	#TODO: esto como que a veces no suma bien no se porque xd
 	for edificio : BuildingTile in array_edificios:
 		suma += edificio.money_gain
-<<<<<<< HEAD
-	#print("")
 	current_rate = suma
-=======
->>>>>>> 20bc000f9b0ace6b9c2c4ea5572dddd73ca6c3c2
 	return suma
 
 func _on_timer_timeout():

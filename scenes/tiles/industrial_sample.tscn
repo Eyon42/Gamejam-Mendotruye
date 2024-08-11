@@ -10,3 +10,7 @@ category = 2
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.308604, 0, 0, 0, 1, 0, 0.124452, 0)
 mesh = SubResource("BoxMesh_hhna5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172175, 0)
+light_color = Color(0.935, 1, 0.22, 1)
