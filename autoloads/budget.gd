@@ -17,11 +17,11 @@ func _process(delta):
 
 func recolectar_money():
 	var suma := 0.0
-	print("Recolectamos money:")
+	#print("Recolectamos money:")
 	for edificio : BuildingTile in array_edificios:
-		print(edificio.name, ": ", edificio.money_gain)
+		#print(edificio.name, ": ", edificio.money_gain)
 		suma += edificio.money_gain
-	print("")
+	#print("")
 	return suma
 
 func _on_timer_timeout():
