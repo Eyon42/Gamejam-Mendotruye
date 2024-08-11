@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctauk7fq44u8s"]
+[gd_scene load_steps=22 format=3 uid="uid://ctauk7fq44u8s"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_r1h6h"]
 [ext_resource type="PackedScene" uid="uid://6vem4jbn7xr4" path="res://scenes/available_tile.tscn" id="2_qq3fk"]
@@ -8,29 +8,49 @@
 [ext_resource type="PackedScene" uid="uid://dj1tw2jybo48f" path="res://scenes/tiles/recreative_sample.tscn" id="6_p46cg"]
 [ext_resource type="FontFile" uid="uid://fasjd7u2rjsr" path="res://assets/RobotoSlab-Black.ttf" id="7_ckclp"]
 [ext_resource type="Script" path="res://scenes/MoneyLabel.gd" id="7_htfvu"]
+[ext_resource type="AudioStream" uid="uid://2ike2sba4b6s" path="res://assets/sound/click1.wav" id="7_qq6y2"]
+[ext_resource type="AudioStream" uid="uid://deylx5y3ndpa6" path="res://assets/sound/click2.wav" id="8_0cbjh"]
+[ext_resource type="AudioStream" uid="uid://dhylgs70qy8hx" path="res://assets/sound/click3.wav" id="9_1c3gi"]
 [ext_resource type="Script" path="res://scenes/MoneyDelta.gd" id="9_7uat4"]
 [ext_resource type="Script" path="res://scenes/Progress.gd" id="10_130mq"]
+[ext_resource type="AudioStream" uid="uid://cfi3xkmfygjvq" path="res://assets/sound/click4.wav" id="10_jmefy"]
+[ext_resource type="AudioStream" uid="uid://4qmi04x2go2r" path="res://assets/sound/click5.wav" id="11_hr317"]
+[ext_resource type="AudioStream" uid="uid://csjgsw4upmje6" path="res://assets/sound/click6.wav" id="12_u4g7f"]
+[ext_resource type="Texture2D" uid="uid://drlwhr0etokya" path="res://assets/upscaled_maps.png" id="13_egjif"]
+[ext_resource type="Texture2D" uid="uid://dyo6t4et6a2mc" path="res://assets/NormalMap.png" id="14_oc3tt"]
+[ext_resource type="AudioStream" uid="uid://bhdpb5vpgtfmc" path="res://assets/sound/Maingame.wav" id="17_fg44u"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_khx1e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xskf"]
+albedo_texture = ExtResource("13_egjif")
+normal_enabled = true
+normal_scale = -3.38
+normal_texture = ExtResource("14_oc3tt")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_r1h6h")
 available_tile = ExtResource("2_qq3fk")
 building_tiles = Array[PackedScene]([ExtResource("4_fg80r"), ExtResource("4_tbxl5"), ExtResource("5_10kbp"), ExtResource("6_p46cg")])
+snap_sounds = Array[AudioStreamWAV]([ExtResource("7_qq6y2"), ExtResource("8_0cbjh"), ExtResource("9_1c3gi"), ExtResource("10_jmefy"), ExtResource("11_hr317"), ExtResource("12_u4g7f")])
 
 [node name="12" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 2.4663e-16, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 12, 8)
 projection = 1
-size = 5.0
+size = 18.0
 near = 0.014
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(130.502, 0, 0, 0, 1.00665, 0, 0, 0, 124.801, 0, 0, 0)
-visible = false
+transform = Transform3D(27.2293, 0, 0, 0, 1.00665, 0, 0, 0, 26.0398, 2.01953, 0, 0)
 mesh = SubResource("PlaneMesh_khx1e")
+surface_material_override/0 = SubResource("StandardMaterial3D_8xskf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.896866, 0.0399689, 0.440493, -0.386302, 0.555816, 0.736097, -0.215412, -0.830344, 0.513932, 5, 8, 3)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.299041, -4.37128e-16, -0.95424, 3.48787e-16, 1, -3.48787e-16, 0.95424, -2.28525e-16, 0.299041, -5.6666, 8, -7.10931)
+light_energy = 0.282
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -98,3 +118,9 @@ theme_override_fonts/font = ExtResource("7_ckclp")
 theme_override_font_sizes/font_size = 30
 text = "Zona: Residencial"
 horizontal_alignment = 1
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_fg44u")
+autoplay = true

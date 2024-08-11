@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7uvsl0lau7ke"]
+[gd_scene load_steps=7 format=3 uid="uid://c7uvsl0lau7ke"]
 
 [ext_resource type="Script" path="res://scenes/ui/MainMenu/MainMenu.gd" id="1_gxefu"]
 [ext_resource type="Texture2D" uid="uid://dqdyap4guavt8" path="res://assets/Logo.png" id="2_l1n4c"]
 [ext_resource type="Texture2D" uid="uid://dq5e7eh51miid" path="res://assets/gameBg.png" id="2_xv1np"]
-[ext_resource type="AudioStream" uid="uid://debtlbqp1yh7r" path="res://assets/woods.mp3" id="3_2glhh"]
 [ext_resource type="Texture2D" uid="uid://n5dq343dq0pk" path="res://assets/nameMenu.png" id="4_tkql1"]
+[ext_resource type="FontFile" uid="uid://fasjd7u2rjsr" path="res://assets/RobotoSlab-Black.ttf" id="5_kaamm"]
+[ext_resource type="AudioStream" uid="uid://b1vu7pxlytx67" path="res://assets/sound/menu_screen.wav" id="6_16rob"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +26,7 @@ grow_vertical = 2
 color = Color(0.886275, 0.886275, 0.886275, 1)
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +36,7 @@ grow_vertical = 2
 texture = ExtResource("2_xv1np")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,6 +52,7 @@ grow_vertical = 2
 texture = ExtResource("2_l1n4c")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -61,6 +65,24 @@ grow_horizontal = 2
 texture = ExtResource("4_tkql1")
 expand_mode = 5
 stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -297.0
+offset_right = 297.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="Title" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_kaamm")
+theme_override_font_sizes/font_size = 100
+text = "Mendotruye"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 visible = false
@@ -102,7 +124,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_2glhh")
+stream = ExtResource("6_16rob")
 autoplay = true
 
 [node name="Button" type="Button" parent="."]

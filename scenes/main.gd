@@ -4,19 +4,26 @@ extends Node3D
 
 @export var available_tile:PackedScene
 @export var building_tiles:Array[PackedScene]
+@export var snap_sounds: Array[AudioStreamWAV]
 
 var _cam:Camera3D
 var RAYCAST_LENGTH:float = 100
 var tiles = Array()
 var _current_tile: BuildingTile
 var _selected_tile: Tile
-var occupied_places = {100:true}
+var occupied_places = {"0":true}
 var init = false
+var sfx_player
+var plop_sound = preload("res://assets/sound/drop.wav")
+var game_music = preload("res://assets/sound/Maingame.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_cam = get_viewport().get_camera_3d()
+	sfx_player = get_node("SFX")
 	setup()
+	var music_player = get_node("MusicPlayer")
+	music_player.set_volume_db(-20.0)
 	pass # Replace with function body.
 
 func setup():
@@ -26,9 +33,25 @@ func setup():
 	add_tile(tile,zero_tile)
 	start_drop()
 	init = true
+	
+	
+func play_snap_sound():
+	var sound = snap_sounds.pick_random()
+	sfx_player.stream = sound
+	sfx_player.stop()
+	sfx_player.set_volume_db(-10.0)
+	sfx_player.play()
+	
+func play_plop_sound():
+	sfx_player.stream = plop_sound
+	sfx_player.stop()
+	sfx_player.set_volume_db(0.0)
+	sfx_player.play()
+	
 
 func add_tile(tile: BuildingTile, used_tile: Tile):
 	print("Tile added")
+	play_plop_sound()
 	var pos = used_tile.position
 	Game.placed_tiles += 1
 	# print(str(placed_tiles) + "/" + str(total_spaces))
@@ -50,7 +73,7 @@ func add_tile(tile: BuildingTile, used_tile: Tile):
 	add_available_tile(Vector3(pos.x+1,pos.y,pos.z))
 
 func add_available_tile(pos):
-	var key = pos.x + pos.z*100
+	var key = str(pos.x + pos.z*100)
 	if (!occupied_places.has(key)):
 		if (abs(pos.x) > Game.grid_radius or abs(pos.z) > Game.grid_radius):
 			return null
@@ -99,6 +122,7 @@ func processMouse():
 		else: 
 			if (rayResult.collider != _selected_tile):
 				offTileHover()
+				play_snap_sound()
 				onTileHover(rayResult.collider)
 	else:
 		offTileHover()
