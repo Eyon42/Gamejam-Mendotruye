@@ -42,7 +42,7 @@ func _calculate_money_gain(categoria_vecina: Category):
 		if categoria_vecina == Category.INDUSTRIAL:
 			money_changed = resta_grande
 		if categoria_vecina == Category.COMERCIAL:
-			money_changed = aumento	
+			money_changed = aumento
 	
 	if category == Category.INDUSTRIAL:
 		if categoria_vecina == Category.RECREATIVO:

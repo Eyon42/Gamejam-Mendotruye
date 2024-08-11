@@ -17,11 +17,9 @@ func _process(delta):
 
 func recolectar_money():
 	var suma := 0.0
-	print("Recolectamos money:")
+	#TODO: esto como que a veces no suma bien no se porque xd
 	for edificio : BuildingTile in array_edificios:
-		print(edificio.name, ": ", edificio.money_gain)
 		suma += edificio.money_gain
-	print("")
 	return suma
 
 func _on_timer_timeout():
