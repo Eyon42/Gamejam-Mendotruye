@@ -5,6 +5,8 @@ extends Tile
 @onready var colision_vecino2 = $ColisionVecino2/CollisionShape3D
 @onready var colision_vecino3 = $ColisionVecino3/CollisionShape3D
 @onready var colision_vecino4 = $ColisionVecino4/CollisionShape3D
+@onready var tipo_label = $TipoLabel
+
 
 @export var aumento : float = 50
 @export var aumento_grande : float = 100
@@ -19,8 +21,15 @@ var building_placed := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	 # Replace with function body.
+	match category:
+		Types.Category.RESIDENCIAL:
+			tipo_label.text = "Residencial"
+		Types.Category.RECREATIVO:
+			tipo_label.text = "Recreativo"
+		Types.Category.INDUSTRIAL:
+			tipo_label.text = "Industrial"
+		Types.Category.COMERCIAL:
+			tipo_label.text = "Comercial"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

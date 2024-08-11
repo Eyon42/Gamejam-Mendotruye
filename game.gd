@@ -3,7 +3,7 @@ extends Node
 var grid_radius = 8
 var total_spaces = (grid_radius * 2 + 1)**2
 var placed_tiles = 0
-var current_building: BuildingTile
+var current_building : BuildingTile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
