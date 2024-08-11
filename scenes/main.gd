@@ -55,14 +55,12 @@ func _on_timer_timeout():
 	place_cooldown = false
 
 func add_tile(tile: BuildingTile, used_tile: Tile):
-	print("Tile added")
 	place_cooldown = true
 	timer.set_wait_time(1.0)
 	timer.start()
 	play_plop_sound()
 	var pos = used_tile.position
 	Game.placed_tiles += 1
-	# print(str(placed_tiles) + "/" + str(total_spaces))
 	
 	# Lo agrego a los edificios globales
 	Budget.array_edificios.append(tile)
