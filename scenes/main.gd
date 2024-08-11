@@ -16,11 +16,14 @@ var init = false
 var sfx_player
 var plop_sound = preload("res://assets/sound/drop.wav")
 var game_music = preload("res://assets/sound/Maingame.wav")
+var timer: Timer
+var place_cooldown = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_cam = get_viewport().get_camera_3d()
 	sfx_player = get_node("SFX")
+	timer = get_node("Timer")
 	setup()
 	var music_player = get_node("MusicPlayer")
 	music_player.set_volume_db(-20.0)
@@ -47,10 +50,15 @@ func play_plop_sound():
 	sfx_player.stop()
 	sfx_player.set_volume_db(0.0)
 	sfx_player.play()
-	
+
+func _on_timer_timeout():
+	place_cooldown = false
 
 func add_tile(tile: BuildingTile, used_tile: Tile):
 	print("Tile added")
+	place_cooldown = true
+	timer.set_wait_time(1.0)
+	timer.start()
 	play_plop_sound()
 	var pos = used_tile.position
 	Game.placed_tiles += 1
@@ -96,8 +104,7 @@ func onTileHover(tile: Tile):
 	_current_tile.position = tile.position
 	_selected_tile = tile
 	_selected_tile.visible = false
-	
-	
+
 func offTileHover():
 	if (_selected_tile != null):
 		_current_tile.visible = false
@@ -119,8 +126,9 @@ func processMouse():
 	var rayResult:Dictionary = space_state.intersect_ray(query)
 	if rayResult.size() > 0:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			add_tile(_current_tile, rayResult.collider)
-			start_drop()
+			if not place_cooldown:
+				add_tile(_current_tile, rayResult.collider)
+				start_drop()
 		else: 
 			if (rayResult.collider != _selected_tile):
 				offTileHover()

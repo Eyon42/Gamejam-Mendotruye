@@ -3,9 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bdtd7a3yumtvr" path="res://scenes/building_tile.tscn" id="1_8tdwy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hhna5"]
-size = Vector3(0.8, 1, 0.8)
 
-[node name="BuildingTile" instance=ExtResource("1_8tdwy")]
+[node name="BuildingTile2" instance=ExtResource("1_8tdwy")]
 category = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
