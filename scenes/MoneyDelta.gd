@@ -8,4 +8,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = str(Budget.current_rate) + " $/seg"
+	text = str(round(Budget.current_rate - Game.speed_penalty)) + " $/seg"

@@ -1,63 +1,49 @@
 [gd_scene load_steps=19 format=3 uid="uid://du0vgak2gpos4"]
 
-[ext_resource type="Script" path="res://game_components/scenes/endings/good_ending.gd" id="1_bxt2y"]
-[ext_resource type="Texture2D" uid="uid://c3fmldv30cgpe" path="res://assets/goodEnding.png" id="2_1r5a1"]
-[ext_resource type="AudioStream" uid="uid://xp2ssk11qwse" path="res://assets/goodEnding.mp3" id="3_nuvec"]
+[ext_resource type="Script" path="res://scenes/ui/endings/good_ending.gd" id="1_bxt2y"]
+[ext_resource type="FontFile" uid="uid://fasjd7u2rjsr" path="res://assets/RobotoSlab-Black.ttf" id="3_hq33p"]
+[ext_resource type="AudioStream" uid="uid://ccfmvuyrnmx6m" path="res://assets/sound/victory.wav" id="3_nuvec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60y0y"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 16, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6083b"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 208, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i386r"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 400, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28u3v"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 592, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_necyx"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 784, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tie33"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 976, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rat3f"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 1168, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjnbd"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 1360, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqcrb"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 1552, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0cq76"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 1744, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kdfn"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 1936, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4b4d"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 2128, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s538m"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 2320, 320, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ecw6w"]
-atlas = ExtResource("2_1r5a1")
 region = Rect2(16, 2512, 320, 176)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qdffg"]
@@ -134,14 +120,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -37.5
+offset_top = 188.0
 offset_right = 100.0
-offset_bottom = 37.5
+offset_bottom = 263.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Salir"
+text = "Jugar de nuevo"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -178,5 +165,44 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nuvec")
 autoplay = true
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -66.5
+offset_right = 297.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hq33p")
+theme_override_font_sizes/font_size = 45
+text = "Lograste construir una
+ciudad en el desierto"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -297.0
+offset_right = 297.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="Title" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hq33p")
+theme_override_font_sizes/font_size = 100
+text = "¡Felicidades!"
+horizontal_alignment = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
