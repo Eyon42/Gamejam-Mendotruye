@@ -2,7 +2,7 @@ extends Node
 
 @onready var timer = $Timer
 
-var money : float = 30000
+var money : float = 20000
 
 var array_edificios : Array
 var current_rate = 0
@@ -25,7 +25,6 @@ func _process(delta):
 
 func recolectar_money():
 	var suma := 0.0
-	#TODO: esto como que a veces no suma bien no se porque xd
 	for edificio : BuildingTile in array_edificios:
 		suma += edificio.money_gain
 	current_rate = suma

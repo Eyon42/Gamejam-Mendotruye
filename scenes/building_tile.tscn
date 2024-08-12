@@ -16,8 +16,8 @@ size = Vector3(0.397949, 0.767944, 0.44342)
 script = ExtResource("1_1w58y")
 aumento = 50.0
 aumento_grande = 100.0
-resta = -50.0
-resta_grande = -100.0
+resta = -200.0
+resta_grande = -400.0
 category = 0
 
 [node name="TipoLabel" type="Label3D" parent="." index="0"]

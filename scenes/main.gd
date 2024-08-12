@@ -142,7 +142,7 @@ func _process(delta):
 	
 	if (Budget.money < 0):
 		bad_end = true
-	Game.speed_penalty += 0.5 + Game.speed_penalty / 100
+	Game.speed_penalty += 0.01 + Game.speed_penalty / 100
 
 func processMouse():
 	var space_state = self.get_world_3d().direct_space_state
@@ -153,10 +153,10 @@ func processMouse():
 	query.collide_with_areas = true
 	var rayResult:Dictionary = space_state.intersect_ray(query)
 	if rayResult.size() > 0:
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if not place_cooldown:
-				add_tile(_current_tile, rayResult.collider)
-				start_drop()
+		if Input.is_action_just_pressed("left_click"):
+			#if not place_cooldown:
+			add_tile(_current_tile, rayResult.collider)
+			start_drop()
 		else: 
 			if (rayResult.collider != _selected_tile):
 				offTileHover()
