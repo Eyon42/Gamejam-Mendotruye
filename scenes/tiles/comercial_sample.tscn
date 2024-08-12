@@ -7,7 +7,7 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yy8oa"]
 
-[node name="BuildingTile" instance=ExtResource("1_bwas3")]
+[node name="CommercialBuilding" instance=ExtResource("1_bwas3")]
 category = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]

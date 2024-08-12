@@ -5,7 +5,7 @@
 
 [sub_resource type="TorusMesh" id="TorusMesh_jklk6"]
 
-[node name="BuildingTile" instance=ExtResource("1_mp8m0")]
+[node name="RecreativeBuilding" instance=ExtResource("1_mp8m0")]
 category = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]

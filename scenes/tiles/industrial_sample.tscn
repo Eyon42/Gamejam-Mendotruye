@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_hhna5"]
 
-[node name="BuildingTile2" instance=ExtResource("1_8tdwy")]
+[node name="IndustrialBuilding" instance=ExtResource("1_8tdwy")]
 category = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]

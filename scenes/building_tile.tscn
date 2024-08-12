@@ -8,8 +8,6 @@
 size = Vector3(1, 0.2, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk7u5"]
-albedo_color = Color(1, 0.34, 0.34, 1)
-emission_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oyw5j"]
 size = Vector3(0.397949, 0.767944, 0.44342)
@@ -22,7 +20,14 @@ resta = -50.0
 resta_grande = -100.0
 category = 0
 
-[node name="Contour" type="Node3D" parent="." index="0"]
+[node name="TipoLabel" type="Label3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47618, 0)
+billboard = 1
+modulate = Color(0, 0, 0, 0.592157)
+outline_modulate = Color(0, 0, 0, 0.6)
+font_size = 50
+
+[node name="Contour" type="Node3D" parent="." index="1"]
 script = ExtResource("3_ikqwy")
 
 [node name="Border" type="MeshInstance3D" parent="Contour" index="0"]
@@ -49,28 +54,31 @@ mesh = SubResource("BoxMesh_qsl2h")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_pk7u5")
 
-[node name="ColisionVecino" type="Area3D" parent="." index="2"]
+[node name="CollisionShape3D" parent="." index="2"]
+disabled = true
+
+[node name="ColisionVecino" type="Area3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
 disabled = true
 
-[node name="ColisionVecino2" type="Area3D" parent="." index="3"]
+[node name="ColisionVecino2" type="Area3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino2" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
 disabled = true
 
-[node name="ColisionVecino3" type="Area3D" parent="." index="4"]
+[node name="ColisionVecino3" type="Area3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino3" index="0"]
 shape = SubResource("BoxShape3D_oyw5j")
 disabled = true
 
-[node name="ColisionVecino4" type="Area3D" parent="." index="5"]
+[node name="ColisionVecino4" type="Area3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColisionVecino4" index="0"]
