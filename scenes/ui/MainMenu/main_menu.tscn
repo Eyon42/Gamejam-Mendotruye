@@ -125,6 +125,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_16rob")
+volume_db = -5.0
 autoplay = true
 
 [node name="Button" type="Button" parent="."]

@@ -31,7 +31,7 @@ func _ready():
 	timer = get_node("Timer")
 	setup()
 	var music_player = get_node("MusicPlayer")
-	music_player.set_volume_db(-20.0)
+	music_player.set_volume_db(-5.0)
 	Game.running = true
 	pass # Replace with function body.
 

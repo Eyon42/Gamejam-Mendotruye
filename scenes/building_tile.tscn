@@ -21,11 +21,12 @@ resta_grande = -100.0
 category = 0
 
 [node name="TipoLabel" type="Label3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47618, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09615, 0)
+visible = false
 billboard = 1
 modulate = Color(0, 0, 0, 0.592157)
-outline_modulate = Color(0, 0, 0, 0.6)
-font_size = 50
+outline_modulate = Color(0, 0, 0, 0.592157)
+font_size = 45
 
 [node name="Contour" type="Node3D" parent="." index="1"]
 script = ExtResource("3_ikqwy")
