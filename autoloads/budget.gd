@@ -2,7 +2,7 @@ extends Node
 
 @onready var timer = $Timer
 
-var money : float = 10000
+var money : float = 30000
 
 var array_edificios : Array
 var current_rate = 0
@@ -21,7 +21,7 @@ func _process(delta):
 		array_edificios = Array()
 		Game.placed_tiles = 0
 		Game.speed_penalty = 0
-		money = 10000
+		money = 30000
 
 func recolectar_money():
 	var suma := 0.0
